@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
 
-import com.clairgustafson.gemstoneApi.entity.Bio;
 import com.clairgustafson.gemstoneApi.entity.Collection;
 import com.clairgustafson.gemstoneApi.repository.CollectionRepo;
 import com.clairgustafson.gemstoneApi.repository.GemstoneRepo;
@@ -25,13 +24,13 @@ public class CollectionService {
 	
 
 	//Create a collection
-	public MultiValueMap<String, String> createCollection(Set<Long> gemstoneIds, Long id) {
+	public Collection createCollection(Set<Long> gemstoneIds, Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	//Get a collection by id
-	public Collection getCollection(Long id) throws Exception {
+	public Collection getCollectionById(Long id) throws Exception {
 		try {
 			return repo.findById(id).orElseThrow();
 		} catch (Exception e) {
@@ -41,9 +40,7 @@ public class CollectionService {
 	}
 
 	//Update collection
-	public MultiValueMap<String, String> updateCollection(Collection collection, Long id) {
-		// TODO Auto-generated method stub
+	public Collection updateCollection(Collection collection, Long id) {
 		return null;
 	}
-
 }

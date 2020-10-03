@@ -29,9 +29,13 @@ public class CollectionController {
 				
 				
 		//Get collection
-		@RequestMapping(value="/{collectionId}", method=RequestMethod.PUT)
-		public ResponseEntity<Object> getCollection(){
-			return new ResponseEntity<Object>(service.getCollection(id), HttpStatus.OK);
+		@RequestMapping(value="/{collectioId}", method= RequestMethod.GET)
+		public ResponseEntity<Object> getCollection(@PathVariable Long id) {
+			try {
+				return new ResponseEntity<Object> (service.getCollectionById(id), HttpStatus.OK);
+			} catch (Exception e) {
+				return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
+			}
 		}
 				
 				
