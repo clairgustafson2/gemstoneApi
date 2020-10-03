@@ -31,7 +31,7 @@ public class CollectionController {
 		//Get collection
 		@RequestMapping(value="/{collectionId}", method=RequestMethod.PUT)
 		public ResponseEntity<Object> getCollection(){
-			return new ResponseEntity<Object>(service.getCollection(), HttpStatus.OK);
+			return new ResponseEntity<Object>(service.getCollection(id), HttpStatus.OK);
 		}
 				
 				
