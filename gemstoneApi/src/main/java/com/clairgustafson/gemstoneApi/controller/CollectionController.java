@@ -33,7 +33,7 @@ public class CollectionController {
 				
 				
 		//Get collection
-		@RequestMapping(value="/{collectioId}", method= RequestMethod.GET)
+		@RequestMapping(value="/{collectionId}", method= RequestMethod.GET)
 		public ResponseEntity<Object> getCollection(@PathVariable Long id) {
 			try {
 				return new ResponseEntity<Object> (service.getCollectionById(id), HttpStatus.OK);

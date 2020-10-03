@@ -13,7 +13,7 @@ import com.clairgustafson.gemstoneApi.entity.Bio;
 import com.clairgustafson.gemstoneApi.service.BioService;
 
 @RestController
-@RequestMapping("/bios")
+@RequestMapping("collectors/{id}/bios")
 public class BioController {
 	
 	@Autowired

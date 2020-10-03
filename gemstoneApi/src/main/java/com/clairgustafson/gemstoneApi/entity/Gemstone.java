@@ -76,7 +76,7 @@ public class Gemstone {
 	}
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "gemstoneId")
 	public Properties getProperties() {
 		return properties;
 	}
