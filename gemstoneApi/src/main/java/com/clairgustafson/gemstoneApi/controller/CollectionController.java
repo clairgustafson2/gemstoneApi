@@ -22,10 +22,14 @@ public class CollectionController {
 	private CollectionService service;
 	
 		//Create a collection
-		@RequestMapping(method=RequestMethod.POST)
-		public ResponseEntity<Object> createCollection(@RequestBody Set<Long> gemstoneIds, @PathVariable Long id) {
-			return new ResponseEntity<Object>(service.createCollection(gemstoneIds, id), HttpStatus.CREATED);
+	@RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity<Object> createCollector(@RequestBody Set<Long> gemstoneIds, @PathVariable Long id){
+		try {
+			return new ResponseEntity<Object>(service.newCollection(gemstoneIds, id), HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<Object>(e, HttpStatus.BAD_REQUEST);
 		}
+	}
 				
 				
 		//Get collection
@@ -38,14 +42,4 @@ public class CollectionController {
 			}
 		}
 				
-				
-		//Update collection by id
-		@RequestMapping(value="/{collectionId}", method=RequestMethod.PUT)
-		public ResponseEntity<Object> updateCollection(@RequestBody Collection collection, @PathVariable Long id) {
-			try {
-				return new ResponseEntity<Object>(service.updateCollection(collection, id), HttpStatus.OK);
-			} catch (Exception e) {
-						return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
-				}
-			}
 }
